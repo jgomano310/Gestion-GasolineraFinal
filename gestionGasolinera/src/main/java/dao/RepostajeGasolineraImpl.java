@@ -29,7 +29,7 @@ public class RepostajeGasolineraImpl implements InterfazRepostajeGasolinera {
 	@Override
 	public void borrar(List<RepostajeGasolinera> lista) {
 		// TODO Auto-generated method st
-		lista.remove(lista.size()-1);
+		entity.remove(lista.size()-1);
 		}
 		
 		

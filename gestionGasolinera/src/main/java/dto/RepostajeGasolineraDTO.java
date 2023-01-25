@@ -1,32 +1,20 @@
-package dao;
+package dto;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table(name="dlk_repostaje_gasolinera", schema="bd_gestor_gasolinera")
-public class RepostajeGasolinera {
+public class RepostajeGasolineraDTO {
+
+private int id;
 	
-	
-	@Id
-	@Column(name="id", unique=true, nullable=false)
-	@GeneratedValue( strategy= GenerationType.IDENTITY)
-	private int id;
-	
-	@Column(name="md_uuid")
 	private String md_uuid;
 	
-	@Column(name="litros")
 	private double litros;
 	
-	@Column(name="tipo_combustible")
 	private String combustible;
 	
-	@Column(name="importe_total")
 	private double importe_total;
 
 	public int getId() {
@@ -69,7 +57,13 @@ public class RepostajeGasolinera {
 		this.importe_total = importe_total;
 	}
 
-	public RepostajeGasolinera( String md_uuid, double litros, String combustible, double importe_total) {
+	@Override
+	public String toString() {
+		return "RepostajeGasolineraDTO [id=" + id + ", md_uuid=" + md_uuid + ", litros=" + litros + ", combustible="
+				+ combustible + ", importe_total=" + importe_total + "]";
+	}
+
+	public RepostajeGasolineraDTO( String md_uuid, double litros, String combustible, double importe_total) {
 		super();
 		
 		this.md_uuid = md_uuid;
@@ -77,11 +71,6 @@ public class RepostajeGasolinera {
 		this.combustible = combustible;
 		this.importe_total = importe_total;
 	}
-
-	public RepostajeGasolinera() {
-		super();
-	}
-	
 	
 	
 }

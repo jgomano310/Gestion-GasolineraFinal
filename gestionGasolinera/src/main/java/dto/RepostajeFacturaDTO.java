@@ -1,41 +1,31 @@
-package dao;
+package dto;
 
-import java.sql.Timestamp;
 import java.util.Calendar;
-import java.util.List;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-@Entity
-@Table(name="dlk_repostaje_factura", schema="bd_gestor_gasolinera")
-public class RepostajeFactura {
+
+public class RepostajeFacturaDTO {
 
 	
-	@Id
-	@Column(name="id", unique=true, nullable=false)
-	@GeneratedValue( strategy= GenerationType.IDENTITY )
+	
 	private int id;
 	
-	@Column(name="md_uuid")
 	private String md_uuid;
 	
-	@Column(name="md_date")
-	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar md_date;
 	
-	@Column(name="importe")
 	private double importe;
 	
-	@Column(name="dni")
+	
 	private String dni;
 	
+	private String matricula;
+
 	public int getId() {
 		return id;
 	}
@@ -43,33 +33,6 @@ public class RepostajeFactura {
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	
-
-	@Column(name="matricula")
-	private String matricula;
-	
-	
-
-	
-
-	public RepostajeFactura( String md_uuid, Calendar md_date, double importe, String dni, String matricula
-			) {
-		super();
-		
-		this.md_uuid = md_uuid;
-		this.md_date = md_date;
-		this.importe = importe;
-		this.dni = dni;
-		this.matricula = matricula;
-		
-	}
-
-	public RepostajeFactura() {
-		super();
-	}
-
-	
 
 	public String getMd_uuid() {
 		return md_uuid;
@@ -111,7 +74,23 @@ public class RepostajeFactura {
 		this.matricula = matricula;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "RepostajeFacturaDTO [id=" + id + ", md_uuid=" + md_uuid + ", md_date=" + md_date + ", importe="
+				+ importe + ", dni=" + dni + ", matricula=" + matricula + "]";
+	}
 
+	public RepostajeFacturaDTO( String md_uuid, Calendar md_date, double importe, String dni, String matricula) {
+		super();
+		
+		this.md_uuid = md_uuid;
+		this.md_date = md_date;
+		this.importe = importe;
+		this.dni = dni;
+		this.matricula = matricula;
+	}
+	
+	
+	
 	
 }

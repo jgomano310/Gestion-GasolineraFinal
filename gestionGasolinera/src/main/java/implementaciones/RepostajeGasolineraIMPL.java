@@ -18,6 +18,8 @@ public class RepostajeGasolineraIMPL {
 	
 	@Transactional
 	public void Insertar(RepostajeGasolinera repostaje) {
+		
+		
 		r.InsertarEnGasolinera(repostaje);
 	}
 	@Transactional

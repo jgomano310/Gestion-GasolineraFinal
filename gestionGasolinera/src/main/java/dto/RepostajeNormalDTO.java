@@ -1,40 +1,26 @@
-package dao;
+package dto;
 
-import java.sql.Timestamp;
 import java.util.Calendar;
-import java.util.List;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Entity
-@Table(name="dlk_repostaje_normal", schema="bd_gestor_gasolinera")
-public class RepostajeNormal {
+public class RepostajeNormalDTO {
+
 	
 
 	
-	
-	@Id
-	@Column(name="id", unique=true, nullable=false)
-	@GeneratedValue( strategy= GenerationType.IDENTITY )
-	 int id;
+	private int id;
 
-	@Column(name="md_uuid")
-	 String md_uuid;
+	private String md_uuid;
 	
-	@Column(name="md_date")
-	@Temporal(TemporalType.TIMESTAMP)
-	 Calendar md_date;
+	private Calendar md_date;
 	
-	@Column(name="importe")
-	 double importe;
+	private double importe;
 	
 	
 
@@ -47,11 +33,11 @@ public class RepostajeNormal {
 				+ "]";
 	}
 
-	public RepostajeNormal() {
+	public RepostajeNormalDTO() {
 		super();
 	}
 
-	public RepostajeNormal( String md_uuid, Calendar md_date, double importe) {
+	public RepostajeNormalDTO( String md_uuid, Calendar md_date, double importe) {
 		super();
 		
 		this.md_uuid = md_uuid;
@@ -94,4 +80,10 @@ public class RepostajeNormal {
 
 	
 	
+
+	
+
+
+
+
 }
